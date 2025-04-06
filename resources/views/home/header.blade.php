@@ -8,7 +8,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class=""></span>
         </button>
-
+ 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav  ">
             <li class="nav-item active">
@@ -36,8 +36,9 @@
           <div class="user_option">
           @if (Route::has('login'))
           @auth
-          <a href="">
+          <a href="{{url('mycart')}}">
               <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+            [{{$count}}]
             </a>
           <form style="padding:10px" method="POST" action="{{ route('logout') }}">
                             @csrf

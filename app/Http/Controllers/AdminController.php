@@ -128,4 +128,5 @@ return redirect('/view_product');
  
         return view('admin.view_product',compact('product'));
     }
+    
 }
