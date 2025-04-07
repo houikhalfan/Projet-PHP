@@ -116,8 +116,8 @@ html, body {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="why.html">
-                Why Us
+              <a class="nav-link" href="#about">
+                About Us
               </a>
             </li>
             <li class="nav-item">

@@ -38,7 +38,7 @@
 @include('home.top')
 <!-- end top cakes section -->
 
-
+@include('home.about')
 
 
   <!-- contact section -->

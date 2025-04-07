@@ -90,7 +90,7 @@
         <div class="carousel-caption">
           <h1>Freshly Baked</h1>
           <p>Just For You</p>
-          <a href="#contact" class="custom-contact-btn">Découvrir</a>
+          <a href="#contact" class="custom-contact-btn">Contact us</a>
         </div>
       </div>
     </div>

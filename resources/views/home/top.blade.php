@@ -2,7 +2,7 @@
 
 <style>
     .popular-cakes-section {
-  background: #f5ccd6		;
+  background: #c7dfe7		;
 }
 
 .popular-cakes-section .custom-heading-container {
@@ -14,12 +14,13 @@
 }
 
 .fancy-title {
-  font-family: 'Pacifico', cursive;
-  font-size: 60px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 60px;
   font-weight: bold;
   color: #e55a75; /* fallback color */
   margin: 0;
   line-height: 0.1;
+   
 }
 
 .gradient-text {
@@ -90,7 +91,7 @@
 
 .popular-cakes-section .cake-price {
   font-size: 16px;
-  color: #f7941d;
+  color: #e55a75;
   font-weight: 500;
 }
 

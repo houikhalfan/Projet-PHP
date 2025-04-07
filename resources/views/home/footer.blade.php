@@ -27,11 +27,10 @@
         <div class="row">
           <div class="col-md-6 col-lg-3">
             <h6>
-              À PROPOS
+             About us
             </h6>
             <p>
-              Delicia Cakes est une boutique en ligne spécialisée dans la confection de gâteaux artisanaux et gourmands. Nous utilisons des ingrédients de qualité pour vous offrir des créations savoureuses et uniques, parfaites pour toutes les occasions.
-            </p>
+            The bakery shop is an online store specializing in the creation of artisanal and delicious cakes. We use high-quality ingredients to offer you savory and unique creations, perfect for all occasions.            </p>
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="info_form">
@@ -41,22 +40,21 @@
               <form action="#">
                 <input type="email" placeholder="Entrez votre email">
                 <button>
-                  S'abonner
+                  Follow us
                 </button>
               </form>
             </div>
           </div>
           <div class="col-md-6 col-lg-3">
             <h6>
-              BESOIN D'AIDE ?
+              Need Help ?
             </h6>
             <p>
-              Vous avez des questions sur nos produits ou besoin de conseils pour choisir le gâteau parfait ? Notre équipe est à votre disposition pour vous accompagner et répondre à toutes vos demandes.
-            </p>
+            Do you have any questions about our products or need advice on choosing the perfect cake? Our team is available to assist you and answer all your inquiries.            </p>
           </div>
           <div class="col-md-6 col-lg-3">
             <h6>
-              CONTACTEZ-NOUS
+              Contact us
             </h6>
             <div class="info_link-box">
               <a href="">
@@ -69,7 +67,7 @@
               </a>
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span> contact@deliciacakes.com</span>
+                <span> contact@theBakeryShop.com</span>
               </a>
             </div>
           </div>
