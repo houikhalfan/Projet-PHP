@@ -43,7 +43,7 @@ class AdminController extends Controller
         $data->category_name=$request->category;
         $data->save();
         toastr()->closeButton()->addSuccess('Category updated Successfully');
-        return redirect('/category');
+        return redirect('/view_category');
     }
 
     public function add_product(){

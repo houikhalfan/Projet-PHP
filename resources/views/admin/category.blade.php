@@ -3,43 +3,80 @@
   <head> 
   @include('admin.css')  
   <style type="text/css">
-    input[type='text']
-    {
-      width: 400px;
-      height: 50px
-    }
-    .div_deg
-    {
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      margin:30px;
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    flex-direction: column;
+  }
 
-    }
-    .table_deg
-    {
-      text-align:center;
-      margin: auto;
-      border: 2px solid yellowgreen;
-      margin-top: 50px;
-      width: 600px;
-    }
-    th
-    {
-      background-color: skyblue;
-      padding:15px;
-      font-size: 20px;
-      font-weight: bold;
-      color: white;
-    }
+  .form-input {
+    width: 100%;
+    max-width: 400px;
+    height: 50px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ced4da;
+    border-radius: 8px;
+    margin-right: 15px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
 
-    td
-    {
-      color:white;
-      padding:10px;
-      border: 1px solid skyblue;
-    }
-  </style>
+  .form-input:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  }
+
+  .btn-primary {
+    height: 50px;
+    padding: 0 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .btn-primary:hover {
+    background-color: #357ab8 !important;
+  }
+
+  .custom-table {
+    width: 90%;
+    max-width: 800px;
+    margin: 50px auto;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .custom-table th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+
+  .custom-table td {
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+
+  .custom-table tr:nth-child(even) td {
+    background-color: #f1f1f1;
+  }
+
+  .custom-table tr:hover td {
+    background-color: #e3f2fd;
+  }
+</style>
+
   </head>
   <body>
     @include('admin.header')
@@ -48,38 +85,35 @@
         <div class="page-header">
           <div class="container-fluid">
           <h1 style="color: white;">Add Category</h1>
-   <div class="div_deg">
-  
-          <form action="{{url('add_category')}}" method="post">
-            @csrf
-    <div>
-    <input type="text" name="category">
- 
-      <input class="btn btn-primary" type="submit" value="Add Category">
-    </div>
-    </form>  
-    
-    </div>  
-    <div>
-      <table class="table_deg">
-        <tr>
-          <th>Category Name</th>
-          <th>Edit</th>
-          <th>Delete</th>
-        </tr>
-        @foreach($data as $data)
-        <tr>
-          <td>{{$data->category_name}}</td>
-          <td>
-            <a class="btn btn-success" href="{{url('edit_category',$data->id)}}">Edit</a>
-          </td>
-          <td>
-            <a class="btn btn-danger" onclick="confirmation(event)" href="{{url('delete_category',$data->id)}}">Delete</a>
-          </td>
-        </tr>
-        @endforeach
-      </table>
-    </div>
+          <div class="form-container">
+  <form action="{{url('add_category')}}" method="post" style="display: flex; gap: 15px;">
+    @csrf
+    <input class="form-input" type="text" name="category" placeholder="Enter category name">
+    <input class="btn btn-primary" type="submit" value="Add Category">
+  </form>
+</div>
+
+<div>
+  <table class="custom-table">
+    <tr>
+      <th>Category Name</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    @foreach($data as $data)
+    <tr>
+      <td>{{$data->category_name}}</td>
+      <td>
+        <a class="btn btn-success" href="{{url('edit_category',$data->id)}}">Edit</a>
+      </td>
+      <td>
+        <a class="btn btn-danger" onclick="confirmation(event)" href="{{url('delete_category',$data->id)}}">Delete</a>
+      </td>
+    </tr>
+    @endforeach
+  </table>
+</div>
+
 </div> 
       </div>
     </div>

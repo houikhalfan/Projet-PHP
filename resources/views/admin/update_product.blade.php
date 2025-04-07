@@ -38,7 +38,7 @@ padding: 15px;
       <div class="page-content">
         <div class="page-header">
           <div class="container-fluid">
-<h2>Update product</h2>
+<h1>Update product</h1>
 
         <div class="div-deg">
         <form action="{{url('edit_product',$data->id)}}" method="post" enctype="multipart/form-data">
