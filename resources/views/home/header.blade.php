@@ -13,12 +13,8 @@
           <ul class="navbar-nav  ">
             <li class="nav-item active">
               <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="shop.html">
-                Cakes
-              </a>
-            </li>
+
+          
             <li class="nav-item">
               <a class="nav-link" href="why.html">
                 Why Us
