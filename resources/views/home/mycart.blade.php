@@ -58,29 +58,9 @@
   </div>
  
 <div class="div_deg">
-    <div class="order_deg">
-<form action="{{url('confirm_order')}}" method="Post">
-    @csrf
+   
 
-<div class="div_gap">
-    <label >Receiver Name</label>
-    <input type="text" name="name" value="{{Auth::user()->name}}">
-</div>
-<div class="div_gap">
-    <label >Receiver Address</label>
-    <textarea name="address">{{Auth::user()->address}}</textarea>
-</div>
-<div class="div_gap">
-    <label >Receiver Phone</label>
-    <input type="text" name="phone" value="{{Auth::user()->phone}}">
-</div>
-<div class="div_gap">
-    <input class="btn btn-primary" type="submit" value="place order">
-</div>
-</form>
-
-
-    </div>
+   
     <table>
         <tr>
             <th>Product title</th>
@@ -123,7 +103,28 @@ $value=$value +$cart->product->price;
 </div>
 
 
+<div class="order_deg" style="display:flex; justify-content:center;align-items:center">
+<form action="{{url('confirm_order')}}" method="Post">
+    @csrf
 
+<div class="div_gap">
+    <label >Receiver Name</label>
+    <input type="text" name="name" value="{{Auth::user()->name}}">
+</div>
+<div class="div_gap">
+    <label >Receiver Address</label>
+    <textarea name="address">{{Auth::user()->address}}</textarea>
+</div>
+<div class="div_gap">
+    <label >Receiver Phone</label>
+    <input type="text" name="phone" value="{{Auth::user()->phone}}">
+</div>
+<div class="div_gap">
+    <input class="btn btn-primary" type="submit" value="cash on delivery">
+    <a class="btn btn-success"href="{{url('stripe',$value)}}">Pay using Card</a>
+</div>
+</form>
+</div>
    
 
   <!-- info section -->
