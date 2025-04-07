@@ -5,7 +5,13 @@
   color: inherit;
   display: block;
 }
-
+h1{
+  
+  font-family: 'Allura', cursive;
+    font-size: 1.5rem;
+    color: #222;
+  
+}
 .modern-card {
   background: #fff;
   border-radius: 12px;
@@ -72,11 +78,11 @@
 
 
 </style>
-<section class="shop_section layout_padding">
+<section class="shop_section layout_padding" id="pro">
     <div class="container">
       <div class="heading_container heading_center">
-        <h2>
-Menu        </h2>
+        <h1>
+Signature        </h1>
       </div>
       <div class="row">
 

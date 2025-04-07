@@ -1,3 +1,10 @@
+<style>
+  .info_section {
+
+    background-color:#e55a75 !important;;
+  
+}
+</style>
 <section class="info_section layout_padding2-top">
     <div class="social_container">
       <div class="social_box">

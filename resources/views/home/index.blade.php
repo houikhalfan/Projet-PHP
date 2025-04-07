@@ -5,6 +5,16 @@
  @include('Home.css')
 </head>
 
+
+  <style>
+    html {
+  scroll-behavior: smooth !important;
+}
+   body {
+  background-color: #fdeef1 !important;
+}
+  </style>
+</style>
 <body>
   <div class="hero_area">
     <!-- header section strats -->
@@ -41,6 +51,7 @@
 
   @include('home.footer')
 
+  
 </body>
 
 </html>
