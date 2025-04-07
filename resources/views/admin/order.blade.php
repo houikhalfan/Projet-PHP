@@ -34,7 +34,9 @@
       <div class="page-content">
         <div class="page-header">
           <div class="container-fluid">
-
+<h3>All Orders</h3>
+<br>
+<br>
         <table class="table-center">
             <tr>
                 <th>Customer name</th>

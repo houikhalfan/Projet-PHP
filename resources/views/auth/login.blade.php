@@ -1,4 +1,30 @@
-<x-guest-layout>
+<!DOCTYPE html>
+<html>
+
+<head>
+ @include('Home.css')
+</head>
+
+
+  <style>
+    html {
+  scroll-behavior: smooth !important;
+}
+   body {
+  background-color: #fdeef1 !important;
+}
+  </style>
+</style>
+<body>
+  <div class="hero_area">
+   
+    <!-- slider section -->
+
+   @include('home.slider')
+
+    <!-- end slider section -->
+  </div>
+  <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -45,3 +71,13 @@
         </div>
     </form>
 </x-guest-layout>
+
+ 
+  <!-- info section -->
+
+  @include('home.footer')
+
+  
+</body>
+
+</html>

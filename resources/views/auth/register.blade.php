@@ -1,4 +1,27 @@
-<x-guest-layout>
+<!DOCTYPE html>
+<html>
+
+<head>
+ @include('Home.css')
+</head>
+
+
+  <style>
+    html {
+  scroll-behavior: smooth !important;
+}
+   body {
+  background-color: #fdeef1 !important;
+}
+  </style>
+</style>
+<body>
+  <div class="hero_area">
+   
+    @include('home.slider')
+    <!-- slider section -->
+
+    <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -62,3 +85,13 @@
         </div>
     </form>
 </x-guest-layout>
+
+
+  <!-- info section -->
+
+  @include('home.footer')
+
+  
+</body>
+
+</html>

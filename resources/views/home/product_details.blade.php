@@ -13,6 +13,16 @@
     .details-box{
         padding:15px;
     }
+    .order-btn {
+  display: inline-block;
+  background-color: #ff3c3c;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
  </style>
 </head>
 
@@ -61,8 +71,12 @@
                   {{$data->description}}
                   </p>
                 </h6>
-              </div>     
-            
+              </div>   
+               
+              <div class="detail-box">
+                
+              <a class="order-btn" href="{{url('add_cart', $data->id)}}">ORDER THIS</a>
+            </div>   
           </div>
         </div>
       </div>
