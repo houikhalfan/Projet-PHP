@@ -43,6 +43,7 @@
                 <th>Product title</th>
                 <th>Price</th>
                 <th>Image</th>
+                <th>Payment Status</th>
                 <th>Status</th>
                 <th>Change status</th>
             </tr>
@@ -56,6 +57,7 @@
                 <td>
                     <img width="150"src="products/{{$data->product->image}}" >
                 </td>
+                <td>{{$data->payment_status}}</td>
                 <td>
                     @if($data->status=='in progress')
                     <span style="color:red">{{$data->status}}</span>

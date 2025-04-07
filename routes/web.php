@@ -5,8 +5,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+Route::get('/', [HomeController::class,'home']);
 
-Route::get('/', [HomeController::class,'login_home']);
+
+Route::get('/dashboard', [HomeController::class,'login_home']);
 Route::get('/dashboard', [HomeController::class,'home'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/myorders', [HomeController::class,'myorders'])->middleware(['auth', 'verified']);

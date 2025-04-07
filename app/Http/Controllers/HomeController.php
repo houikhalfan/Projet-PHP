@@ -27,6 +27,30 @@ class HomeController extends Controller
 
         return view('admin.index',compact('user','product','order','delivered'));
     
+    
+    }
+    public function home(){
+        $product=Product::all();
+        if(Auth::id()){
+            $user=Auth::user();
+            $userid=$user->id;
+            $count=Cart::where('user_id',$userid)->count();
+        }
+        else{
+            $count='';
+        }
+        // ✅ Correct query for top ordered product IDs
+        $topProductIds = DB::table('orders')
+            ->select('product_id', DB::raw('COUNT(*) as total_orders'))
+            ->groupBy('product_id')
+            ->orderByDesc('total_orders')
+            ->limit(3)
+            ->pluck('product_id');
+    
+        // ✅ Get product info
+        $topProducts = Product::whereIn('id', $topProductIds)->get();
+    
+        return view('home.index', compact('product', 'count', 'topProducts'));
     }
     public function login_home()
     {
