@@ -7,7 +7,7 @@
 }
 h1{
   
-  font-family: 'Allura', cursive;
+  font-family: 'Pacifico', cursive;
     font-size: 1.5rem;
     color: #222;
   

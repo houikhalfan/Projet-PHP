@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\User;
 use App\Models\Cart;
 use App\Models\Order;
+use Illuminate\Support\Facades\DB;
 use Session;
 use Stripe;
 
@@ -25,31 +26,33 @@ class HomeController extends Controller
         $delivered=Order::where('status','delivered')->get()->count();
 
         return view('admin.index',compact('user','product','order','delivered'));
+    
     }
-    public function home(){
-        $product=Product::all();
-        if(Auth::id()){
-            $user=Auth::user();
-            $userid=$user->id;
-            $count=Cart::where('user_id',$userid)->count();
+    public function login_home()
+    {
+        $product = Product::all();
+    
+        if (Auth::id()) {
+            $user = Auth::user();
+            $userid = $user->id;
+            $count = Cart::where('user_id', $userid)->count();
+        } else {
+            $count = '';
         }
-        else{
-            $count='';
-        }
-        return view('home.index', compact('product','count'));
+    
+        // ✅ Correct query for top ordered product IDs
+        $topProductIds = DB::table('orders')
+            ->select('product_id', DB::raw('COUNT(*) as total_orders'))
+            ->groupBy('product_id')
+            ->orderByDesc('total_orders')
+            ->limit(3)
+            ->pluck('product_id');
+    
+        // ✅ Get product info
+        $topProducts = Product::whereIn('id', $topProductIds)->get();
+    
+        return view('home.index', compact('product', 'count', 'topProducts'));
     }
-    public function login_home(){
-        $product=Product::all();
-        if(Auth::id()){
-            $user=Auth::user();
-            $userid=$user->id;
-            $count=Cart::where('user_id',$userid)->count();
-        }
-        else{
-            $count='';
-        }
-        return view('home.index', compact('product', 'count'));
-}
     public function product_details($id){
         $data=Product::find($id);
         if(Auth::id()){
@@ -149,6 +152,7 @@ return redirect()->back();
         $count=Cart::where('user_id',$user)->get()->count();
         $order=Order::where('user_id',$user)->get();
         return view('home.order',compact('count','order'));
+        
     }
     public function stripe($value = 100) {
         return view('home.stripe', compact('value'));

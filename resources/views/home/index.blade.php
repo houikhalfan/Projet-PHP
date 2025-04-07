@@ -34,7 +34,9 @@
   <!-- end shop section -->
 
 
-
+<!-- top cakes section -->
+@include('home.top')
+<!-- end top cakes section -->
 
 
 
