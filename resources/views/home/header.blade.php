@@ -1,3 +1,5 @@
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
 <style>
   /* Remove default margin and padding from body and html */
 html, body {
@@ -24,11 +26,12 @@ html, body {
 /* Brand Title */
 .navbar-brand span {
   color: #e55a75 !important;
-  font-size: 32px !important;
-  font-weight: 700 !important;
-  letter-spacing: 1.5px !important;
-  text-transform: uppercase !important;
+  font-family: 'Pacifico', cursive !important;
+  font-size: 36px !important;
+  letter-spacing: 1px !important;
+  text-transform: none !important;
 }
+
 
 /* Nav Links */
 #navbarSupportedContent .navbar-nav .nav-link {
@@ -121,11 +124,7 @@ html, body {
                 About Us
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="testimonial.html">
-                Testimonial
-              </a>
-            </li>
+          
             <li class="nav-item">
               <a class="nav-link" href="#con">Contact Us</a>
             </li>

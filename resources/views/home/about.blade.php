@@ -90,10 +90,10 @@
       <div class="heading">
       <h2><span>About</span> Us</h2>
 <p>
-  Welcome to The Bakery Shop, where every treat is baked with love and a sprinkle of joy. Nestled in the heart of the community, our passion lies in crafting homemade delights that bring people together — from buttery croissants to rich, velvety cakes and the kind of cookies that make you smile with every bite. 
+  Welcome to Delicia Cakes, where every treat is baked with love and a sprinkle of joy. Nestled in the heart of the community, our passion lies in crafting homemade delights that bring people together — from buttery croissants to rich, velvety cakes and the kind of cookies that make you smile with every bite. 
   What started as a small family dream has risen into a cozy haven for dessert lovers and coffee companions alike. Our secret? Time-honored recipes, the finest ingredients, and a whole lot of heart. 
   Whether you're grabbing your morning muffin, ordering a custom cake for a celebration, or just stopping by to enjoy the smell of something sweet baking — we’re here to make your day just a little more delicious. 
-  The Bakery Shop — Where every bite feels like home.
+  Delicia Cakes — Where every bite feels like home.
 </p>
 
         <div class="btn-container">

@@ -49,7 +49,7 @@
         }
 
         th {
-            background-color: #333;
+            background-color: #e55a75;
             color: #fff;
         }
 
@@ -97,7 +97,7 @@
         }
 
         .btn-danger {
-            background-color: #e74c3c;
+            background-color: #e55a75;
             color: #fff;
         }
 
@@ -106,7 +106,7 @@
         }
 
         .btn-primary {
-            background-color: #2980b9;
+            background-color: #c7dfe7;
             color: #fff;
         }
 
@@ -115,12 +115,12 @@
         }
 
         .btn-success {
-            background-color: #27ae60;
+            background-color: #c19ee0;
             color: white;
         }
 
         .btn-success:hover {
-            background-color: #2ecc71;
+            background-color: #9966cc;
         }
     </style>
 </head>

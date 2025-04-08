@@ -30,7 +30,7 @@
              About us
             </h6>
             <p>
-            The bakery shop is an online store specializing in the creation of artisanal and delicious cakes. We use high-quality ingredients to offer you savory and unique creations, perfect for all occasions.            </p>
+            Delicia Cakes is an online store specializing in the creation of artisanal and delicious cakes. We use high-quality ingredients to offer you savory and unique creations, perfect for all occasions.            </p>
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="info_form">
@@ -67,7 +67,7 @@
               </a>
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span> contact@theBakeryShop.com</span>
+                <span> contact@DeliciaCakes.com</span>
               </a>
             </div>
           </div>

@@ -82,7 +82,7 @@
         <div class="carousel-caption">
           <h1>Delight in</h1>
           <p>Every Bite</p>
-          <a href="#contact" class="custom-contact-btn">Contact Us</a>
+          <a href="#con" class="custom-contact-btn">Contact Us</a>
         </div>
       </div>
 
@@ -90,7 +90,7 @@
         <div class="carousel-caption">
           <h1>Freshly Baked</h1>
           <p>Just For You</p>
-          <a href="#contact" class="custom-contact-btn">Contact us</a>
+          <a href="#pro" class="custom-contact-btn">Explore more</a>
         </div>
       </div>
     </div>

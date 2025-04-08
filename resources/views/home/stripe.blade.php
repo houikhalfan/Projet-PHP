@@ -8,19 +8,88 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    body {
+        background-color: #c7dfe7;
+        font-family: 'Roboto', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+    .pt{
+    font-family: 'Great Vibes', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: #e55a75;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 90px;
+}
+h3, h4 {
+        text-align: center;
+        font-weight: 700;
+        color: #e55a75;
+    }
+
+    .credit-card-box {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        width: 100%;
+    }
+
+    .panel-heading {
+        background-color: #e55a75;
+        color: white;
+        padding: 20px;
+        border-radius: 15px 15px 0 0;
+        margin-bottom: 20px;
+    }
+
+    .btn-primary {
+        background-color: #b388d9;
+        border: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #a076d3;
+    }
+
+    .form-control {
+        border-radius: 8px;
+    }
+
+    .alert-success {
+        border-radius: 8px;
+    }
+
+    .error .alert {
+        border-radius: 8px;
+    }
+</style>
+
 
 <body>
 
-    
 
 <div class="container">
 
     
 
-    <h1>Payment System</h1>
+    <h1 class="pt">Payment System 💳</h1>
 
     
 
@@ -33,7 +102,7 @@
                 <div class="panel-heading display-table" >
 
                         <h3 class="panel-title" >Payment Details</h3>
-                        <h4>You need to pay {{$value}}</h4>
+                        <h4>You need to pay ${{$value}}</h4>
                 </div>
 
                 <div class="panel-body">
@@ -181,7 +250,7 @@
 
 </div>
 
-    
+
 
 </body>
 

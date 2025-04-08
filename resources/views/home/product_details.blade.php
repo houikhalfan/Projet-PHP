@@ -134,9 +134,7 @@
                 <div class="product-info">
                     <h2>{{$data->title}}</h2>
                     <h4>Price: <span>${{$data->price}}</span></h4>
-                    @if($data->quantity > 0)
-                        <h4>Available Quantity: <span>{{$data->quantity}}</span></h4>
-                    @endif
+               
                     <div class="product-description">
                         <p>{{$data->description}}</p>
                     </div>
