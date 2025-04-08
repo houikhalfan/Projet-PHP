@@ -3,34 +3,128 @@
   <head> 
   @include('admin.css')  
   <style>
-    .div_deg{
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        margin-top:60px;
-    }
-    .table{
-        border :2px solid white;
+/* Body Background */
+body {
+  background: linear-gradient(to right, #141e30, #243b55);
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
 
-    }
-    th{
-        background-color:skyblue;
-        color:white;
-        font-size:19px;
-        font-weight:bold;
-        padding:15px;
-    }
-    td{
-        border:1px solid white;
-        text-align: center;
-        color:white;
 
-    }
-    input[type="search"]{
-      width:500px;
-      height:60px;
-      margin-left:50px;
-    }
+/* Glassmorphic Card Effect */
+.div_deg,
+.table {
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 20px;
+  color: white;
+  width: 90%;
+  max-width: 1000px;
+  overflow: hidden;
+}
+
+/* Table Styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+th {
+  background-color: rgba(110, 231, 183, 0.2);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+td {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+tr:hover td {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Search Button Styling */
+input[type="submit"] {
+  padding: 12px 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: rgba(110, 231, 183, 0.2);
+  color: white;
+  border: 1px solid #6ee7b7;
+  transition: background 0.3s, transform 0.2s;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #6ee7b7;
+  color: black;
+  transform: scale(1.05);
+}
+
+/* Button Styling */
+.btn-success,
+.btn-danger {
+  padding: 12px 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: rgba(110, 231, 183, 0.2);
+  color: white;
+  border: 1px solid #6ee7b7;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-success:hover {
+  background-color: #6ee7b7;
+  color: black;
+  transform: scale(1.05);
+}
+
+.btn-danger {
+  background-color: rgba(255, 99, 132, 0.2);
+  border-color: #ff6384;
+}
+
+.btn-danger:hover {
+  background-color: #ff6384;
+  color: black;
+}
+
+/* Pagination Styling */
+.div_deg {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination {
+  background: rgba(110, 231, 183, 0.2);
+  padding: 5px 10px;
+  border-radius: 10px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pagination a {
+  color: white;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 0 5px;
+}
+
+.pagination a:hover {
+  background-color: rgba(110, 231, 183, 0.5);
+}
+
   </style>
   </head>
   <body>

@@ -3,33 +3,104 @@
   <head> 
   @include('admin.css')  
   <style type="text/css">
-    .div_deg{
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        margin-top: 60px;
-    }
-    h1{
-        color:white;
-    }
-    label{
-        diplay:inline-block;
-        width:250px;
-        font: size 18px !important;        
-        color: white !important;;
-    }
-    input[type='text']{
-width: 350px;
-height:50px;
-    }
-    textarea{
-        width: 400px;
-        height:80px;
-    }
-    .input_deg{
-padding: 15px;
-    }
+body {
+  background: linear-gradient(to right, #141e30, #243b55);
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
 
+/* Glassmorphic container for the form */
+.div_deg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+}
+
+/* Title */
+h1 {
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Glassmorphic form container */
+form {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  padding: 30px;
+  width: 90%;
+  max-width: 800px;
+  color: #fff;
+}
+
+/* Input fields styling */
+input[type='text'], input[type='number'], textarea, select {
+  width: 100%;
+  max-width: 400px;
+  height: 50px;
+  padding: 10px 15px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Placeholder styling */
+input[type='text']::placeholder, textarea::placeholder {
+  color: #ccc;
+}
+
+/* Focus effect */
+input[type='text']:focus, input[type='number']:focus, textarea:focus, select:focus {
+  border-color: #6ee7b7;
+  box-shadow: 0 0 8px rgba(110, 231, 183, 0.6);
+}
+
+/* Center the submit button */
+.input_deg:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-success {
+  background: rgba(110, 231, 183, 0.2);
+  color: #fff;
+  border: 1px solid #6ee7b7;
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+  backdrop-filter: blur(10px);
+  width: auto;
+  max-width: 200px; /* Optional: Adjust the max width */
+  margin-top: 20px; /* Optional: Add some space from the input fields */
+}
+
+.btn-success:hover {
+  background: #6ee7b7 !important;
+  color: #000 !important;
+  transform: scale(1.05);
+}
+
+/* Label styling */
+label {
+  display: inline-block;
+  width: 250px;
+  font-size: 18px !important;
+  color: white !important;
+  margin-bottom: 8px;
+}
   </style>
   </head>
   <body>
@@ -71,6 +142,8 @@ padding: 15px;
                     <label for="">Product Image</label>
                     <input type="file" name="image" >
                 </div>
+                <br>
+                <br>
                 <div class="input_deg">
                     <input class="btn btn-success" type="submit" value="Add_product" >
                 </div>

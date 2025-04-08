@@ -1,3 +1,38 @@
+<style>
+  h2 {
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2) !important;
+  margin-bottom: 20px !important;
+  letter-spacing: 1px !important;
+  backdrop-filter: blur(2px);
+}
+/* h1 Header */
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+  .statistic-block.block {
+  background-color: rgba(110, 231, 183, 0.2) !important;
+  color: #f5f5f5 !important;
+  border-radius: 8px !important;
+  padding: 20px !important;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1)!important;
+}
+
+.statistic-block .title strong,
+.statistic-block .number,
+.statistic-block .icon i {
+  color: #f5f5f5 !important;
+}
+
+</style>
 <h2 class="h5 no-margin-bottom">Dashboard</h2>
           </div>
         </div>
