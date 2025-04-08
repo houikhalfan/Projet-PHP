@@ -97,6 +97,7 @@ html, body {
 <header class="header_section delicia-navbar">
       <nav class="navbar navbar-expand-lg custom_nav-container ">
         <a class="navbar-brand" href="{{url('/')}}">
+        <img src="{{asset('images/x.png')}}" alt="Delicia Cakes Logo" style="height: 50px; margin-right: 10px;"> <!-- Logo Image -->
           <span>
           Delicia Cakes
           </span>

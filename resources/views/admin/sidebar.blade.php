@@ -1,3 +1,53 @@
+<style>
+ /* Sidebar Links */
+#sidebar ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#sidebar ul li {
+  margin-bottom: 15px;
+}
+
+#sidebar ul li a {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 18px;
+  padding: 12px 15px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#sidebar ul li a i {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+/* Sidebar Hover Effects */
+#sidebar ul li a:hover {
+  background-color: rgba(110, 231, 183, 0.3);
+  transform: scale(1.05);
+}
+
+/* Dropdown Submenu */
+#sidebar ul li ul {
+  padding-left: 20px;
+}
+
+#sidebar ul li ul li a {
+  padding: 10px 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+#sidebar ul li ul li a:hover {
+  background-color: rgba(110, 231, 183, 0.3);
+}
+ 
+</style>
 <div class="d-flex align-items-stretch">
       <!-- Sidebar Navigation-->
       <nav id="sidebar">

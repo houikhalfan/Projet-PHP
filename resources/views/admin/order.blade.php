@@ -3,29 +3,113 @@
   <head> 
   @include('admin.css')  
   <style>
-    .table{
-        border :2px solid white;
+   
+   body {
+  background: linear-gradient(to right,rgb(31, 36, 44), #243b55); /* Dégradé de fond */
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  margin: 0; /* Supprimer les marges par défaut */
+  padding: 0; /* Supprimer les paddings par défaut */
+  height: 100vh; /* Prendre toute la hauteur de la fenêtre */
+}
 
-    }
-    th{
-        background-color:skyblue;
-        color:white;
-        font-size:19px;
-        font-weight:bold;
-        padding:15px;
-    }
-    td{
-        border:1px solid white;
-        text-align: center;
-        color:white;
-        padding:10px;
 
-    }
-    .table-center{
-        display:flex;
-        justify-content:center;
-        align-items:center;
-    }
+/* Glassmorphic Card Effect */
+.div_deg,
+.table {
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 20px;
+  color: white;
+  width: 90%;
+  max-width: 1000px;
+  overflow: hidden;
+}
+
+/* Table Styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+th {
+  background-color: rgba(110, 231, 183, 0.2);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+td {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+tr:hover td {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Search Button Styling */
+input[type="submit"] {
+  padding: 12px 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: rgba(110, 231, 183, 0.2);
+  color: white;
+  border: 1px solid #6ee7b7;
+  transition: background 0.3s, transform 0.2s;
+  cursor: pointer;
+}
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+input[type="submit"]:hover {
+  background-color: #6ee7b7;
+  color: black;
+  transform: scale(1.05);
+}
+
+/* Button Styling */
+.btn-success,
+.btn-danger {
+  padding: 12px 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: rgba(110, 231, 183, 0.2);
+  color: white;
+  border: 1px solid #6ee7b7;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-success:hover {
+  background-color: #6ee7b7;
+  color: black;
+  transform: scale(1.05);
+}
+
+.btn-danger {
+  background-color: rgba(255, 99, 132, 0.2);
+  border-color: #ff6384;
+}
+
+.btn-danger:hover {
+  background-color: #ff6384;
+  color: black;
+}
+
   </style>
   </head>
   <body>
@@ -34,7 +118,7 @@
       <div class="page-content">
         <div class="page-header">
           <div class="container-fluid">
-<h3>All Orders</h3>
+<h1>All Orders</h1>
 <br>
 <br>
         <table class="table-center">
