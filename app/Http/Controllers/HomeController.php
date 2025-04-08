@@ -91,18 +91,22 @@ class HomeController extends Controller
     }
     public function add_cart($id)
     {
-        $product_id=$id;
-        $user=Auth::user();
-        $user_id=$user->id;
-        $data=new Cart;
-        $data->user_id=$user_id;
-        $data->product_id=$product_id;
-        $data->save();
-        toastr()->closeButton()->addSuccess('Added to the Cart Successfully');
-
+        $product = Product::find($id);
+    
+        if ($product && $product->quantity > 0) {
+            $user = Auth::user();
+            $data = new Cart;
+            $data->user_id = $user->id;
+            $data->product_id = $product->id;
+            $data->save();
+            toastr()->closeButton()->addSuccess('Added to the Cart Successfully');
+        } else {
+            toastr()->closeButton()->addError('This product is out of stock');
+        }
+    
         return redirect()->back();
-
     }
+    
     public function mycart(){
         if(Auth::id()){
             $user=Auth::user();
@@ -136,40 +140,63 @@ class HomeController extends Controller
         return redirect()->back();
     }
     
-    public function confirm_order(Request $request){
-        $name=$request->name;
+    public function confirm_order(Request $request)
+{
+    $name = $request->name;
+    $address = $request->address;
+    $phone = $request->phone;
+    $userid = Auth::user()->id;
 
-        $address=$request->address;
-        $phone=$request->phone;
-        $userid=Auth::user()->id;
-        $cart=Cart::where('user_id',$userid)->get();
+    $cartItems = Cart::where('user_id', $userid)->get();
+    $grouped = $cartItems->groupBy('product_id');
 
-foreach($cart as $carts){
-    
-    $order=new Order;
-    $order->name=$name;
-    $order->rec_address=$address;
-    $order->phone=$phone;
-    $order->user_id=$userid;
-    $order->product_id=$carts->product_id;
-    $order->save();
+    foreach ($grouped as $productId => $items) {
+        $quantityRequested = $items->count();
+        $product = Product::find($productId);
 
+        if ($product) {
+            $availableStock = $product->quantity;
+            $quantityToOrder = min($quantityRequested, $availableStock);
 
+            if ($quantityToOrder > 0) {
+                // Place as many orders as stock allows
+                for ($i = 0; $i < $quantityToOrder; $i++) {
+                    $order = new Order;
+                    $order->name = $name;
+                    $order->rec_address = $address;
+                    $order->phone = $phone;
+                    $order->user_id = $userid;
+                    $order->product_id = $productId;
+                    $order->save();
+                }
 
+                // Update product stock
+                $product->quantity -= $quantityToOrder;
+                $product->save();
 
-}
-
-$cart_remove=Cart::where('user_id',$userid)->get();
-foreach($cart_remove as $remove){
-    $data=Cart::find($remove->id);
-    $data->delete();
-
-}
-toastr()->addSuccess('ordered successfully', [
-    'closeButton' => true
-]);
-return redirect()->back();
+                if ($quantityToOrder < $quantityRequested) {
+                    toastr()->addWarning("Only {$quantityToOrder} of '{$product->title}' available. Ordered partial quantity.", [
+                        'closeButton' => true
+                    ]);
+                }
+            } else {
+                toastr()->addError("Product '{$product->title}' is out of stock.", [
+                    'closeButton' => true
+                ]);
+            }
+        }
     }
+
+    // Delete all cart items
+    Cart::where('user_id', $userid)->delete();
+
+    toastr()->addSuccess('Order processed successfully', [
+        'closeButton' => true
+    ]);
+
+    return redirect()->back();
+}
+
 
     public function myorders(){
         $user=Auth::user()->id;
@@ -182,63 +209,61 @@ return redirect()->back();
         return view('home.stripe', compact('value'));
     }
     
-    public function stripePost(Request $request,$value)
+    public function stripePost(Request $request, $value)
+{
+    \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
-    {
+    \Stripe\Charge::create([
+        "amount" => $value * 100,
+        "currency" => "usd",
+        "source" => $request->stripeToken,
+        "description" => "Test payment from itsolutionstuff.com." . $request->value,
+    ]);
 
-        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+    $name = Auth::user()->name;
+    $phone = Auth::user()->phone;
+    $address = Auth::user()->address;
+    $userid = Auth::user()->id;
 
-    
+    $cartItems = Cart::where('user_id', $userid)->get();
 
-        Stripe\Charge::create ([
+    // Count how many times each product is in the cart
+    $grouped = $cartItems->groupBy('product_id');
 
-                "amount" => $value * 100,
+    foreach ($grouped as $productId => $items) {
+        $quantityRequested = $items->count(); // how many times this product is in the cart
+        $product = Product::find($productId);
 
-                "currency" => "usd",
+        if ($product && $product->quantity >= $quantityRequested) {
+            // Enough stock – create that many orders
+            for ($i = 0; $i < $quantityRequested; $i++) {
+                $order = new Order;
+                $order->name = $name;
+                $order->rec_address = $address;
+                $order->phone = $phone;
+                $order->user_id = $userid;
+                $order->product_id = $productId;
+                $order->payment_status = "paid";
+                $order->save();
+            }
 
-                "source" => $request->stripeToken,
-
-                "description" => "Test payment from itsolutionstuff.com.". $request->value, 
-
-        ]);
-
-      
-
-        $name=Auth::user()->name;
-
-        $phone=Auth::user()->phone;
-        $address=Auth::user()->address;
-
-        $userid=Auth::user()->id;
-        $cart=Cart::where('user_id',$userid)->get();
-
-foreach($cart as $carts){
-    
-    $order=new Order;
-    $order->name=$name;
-    $order->rec_address=$address;
-    $order->phone=$phone;
-    $order->user_id=$userid;
-    $order->product_id=$carts->product_id;
-    $order->payment_status="paid";
-    $order->save();
-
-
-
-
-}
-
-$cart_remove=Cart::where('user_id',$userid)->get();
-foreach($cart_remove as $remove){
-    $data=Cart::find($remove->id);
-    $data->delete();
-
-}
-toastr()->addSuccess('ordered successfully', [
-    'closeButton' => true
-]);
-return redirect('mycart');
-
+            // Reduce stock
+            $product->quantity -= $quantityRequested;
+            $product->save();
+        } else {
+            // Optional: notify user that some product was out of stock
+            toastr()->addError("Product '{$product->title}' is out of stock or not enough in stock.", [
+                'closeButton' => true
+            ]);
+        }
     }
+
+    // Clear all cart items
+    Cart::where('user_id', $userid)->delete();
+
+    toastr()->addSuccess('Order placed successfully', ['closeButton' => true]);
+    return redirect('mycart');
+}
+
 
 }
